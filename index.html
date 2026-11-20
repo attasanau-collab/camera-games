@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC 3D Game - Head & Hand Tracking</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js (3D Engine) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GLTFLoader สำหรับโหลดไฟล์โมเดล 3D (.glb / .gltf) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- MediaPipe Libraries (Camera, Face Mesh, Hands) -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- ซ่อน Video กล้อง Webcam ไว้ประมวลผล -->
+    <video class="input_video" autoplay playsinline style="display: none;"></video>
+
+    <!-- Canvas สำหรับแสดงภาพเกม PC เต็มหน้าจอ -->
+    <div id="game-container"></div>
+
+    <!-- จอเล็กพรีวิวกล้อง Webcam มุมขวาบน -->
+    <div id="webcam-preview-box">
+        <canvas id="webcam_canvas" width="160" height="120"></canvas>
+        <span>Webcam Feed</span>
+    </div>
+
+    <!-- UI หน้าต่างเริ่มต้น -->
+    <div id="overlay">
+        <h2>🖥️ PC Desktop 3D Game</h2>
+        <p>ใช้ <b>การหันหน้าจริง</b> เพื่อควบคุมมุมมองกล้อง และใช้ <b>มือขี้ก้าง 2 ข้าง</b> หยิบกล่องบนโต๊ะ</p>
+        <button id="start-btn">เริ่มเล่นเกม (Start Game)</button>
+    </div>
+
+    <!-- UI สถานะเกม -->
+    <div id="game-status">กรุณากดปุ่มเพื่อเริ่มระบบ...</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

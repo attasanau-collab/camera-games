@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050811;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* กล่องพรีวิว Webcam มุมขวาบน */
+#webcam-preview-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 160px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #00f0ff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    z-index: 10;
+}
+
+#webcam_canvas {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transform: scaleX(-1); /* พลิกกระจกสำหรับกล้องหน้า PC */
+}
+
+#webcam-preview-box span {
+    font-size: 0.75rem;
+    color: #00f0ff;
+    padding: 4px 0;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 8, 17, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    z-index: 999;
+    text-align: center;
+}
+
+#overlay h2 {
+    color: #00f0ff;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+#overlay p {
+    color: #9ca3af;
+    max-width: 450px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#start-btn {
+    margin-top: 35px;
+    padding: 16px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #050811;
+    background: #00f0ff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+#start-btn:hover {
+    transform: scale(1.05);
+    background: #38bdf8;
+}
+
+#game-status {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    color: #00f0ff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: 1px solid #00f0ff;
+    z-index: 10;
+    font-size: 1rem;
+    backdrop-filter: blur(8px);
+}
